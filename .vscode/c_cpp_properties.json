@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32", // Or whatever name is appropriate for your system
+            "includePath": [
+                "${workspaceFolder}/**" // Include project folders
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe", // Path to your g++ compiler
+            "cStandard": "c17", // Set C standard (if needed)
+            "cppStandard": "c++17", // Set C++ standard to C++17
+            "intelliSenseMode": "gcc-x64", // Or clang-x64 if you use clang
+            "compilerArgs": [
+                "-std=c++17" // Additional compiler arguments (important!)
+            ]
+        }
+    ],
+    "version": 4
+}
