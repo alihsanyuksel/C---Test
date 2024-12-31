@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build with gtest",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-std=c++17",
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/char_test.cpp",
+                "${workspaceFolder}/char.cpp",
+                "-o",
+                "${workspaceFolder}/char_test.exe",
+                "-I",
+                "/mingw64/include", // Include gtest headers
+                "-L",
+                "/mingw64/lib", // Link gtest library
+                "-lgtest", // Google Test library
+                "-lgtest_main" // Google Test main function
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task updated to include gtest."
+        }
+    ],
+    "version": "2.0.0"
+}
