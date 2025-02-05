@@ -15,6 +15,8 @@ public:
     void increaseDexterity(int amount); // New function
     void takeDamage(int damage);
     int attack(Character& target);
+    void setStrength(int strength);
+    int defend(int attackDamage);
 
 private:
     std::string name_;

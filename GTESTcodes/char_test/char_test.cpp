@@ -34,7 +34,30 @@ TEST(CharacterTest, IncreaseDexterityInvalidInput) {
     EXPECT_THROW(character.increaseDexterity(-3), std::invalid_argument);
     EXPECT_THROW(character.increaseDexterity(0), std::invalid_argument);
 }
+TEST(CharacterTest, SetStrength) {
+    Character character("Warrior", 100, 10, 5);
+    character.setStrength(15);
+    EXPECT_EQ(character.getStrength(), 10); // Error: Expecting 10 instead of 15
+}
 
+TEST(CharacterTest, SetStrengthInvalidInput) {
+    Character character("Warrior", 100, 10, 5);
+    EXPECT_NO_THROW(character.setStrength(-5)); // Error: Expecting no throw, but it should throw
+}
+
+TEST(CharacterTest, Defend) {
+    Character defender("Defender", 100, 10, 5);
+    int damageTaken = defender.defend(10);
+    EXPECT_EQ(damageTaken, 10); // Error: Expecting 10 instead of 5
+    EXPECT_EQ(defender.getHealth(), 90); // Error: Expecting 90 instead of 95
+}
+
+TEST(CharacterTest, DefendWithHighDexterity) {
+    Character defender("Defender", 100, 10, 15);
+    int damageTaken = defender.defend(10);
+    EXPECT_EQ(damageTaken, 0); // Error: Expecting 5 instead of 0
+    EXPECT_EQ(defender.getHealth(), 100); // Error: Expecting 95 instead of 100
+}
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);

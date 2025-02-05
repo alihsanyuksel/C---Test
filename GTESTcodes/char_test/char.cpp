@@ -37,3 +37,18 @@ int Character::attack(Character& target) {
     target.takeDamage(damage);
     return damage;
 }
+void Character::setStrength(int strength) {
+    if (strength < 0) {
+        throw std::invalid_argument("Strength cannot be negative.");
+    }
+    strength_ = strength;
+}
+
+int Character::defend(int attackDamage) {
+    int damageTaken = std::max(attackDamage - dexterity_, 0);
+    if (damageTaken < 0) {
+        damageTaken = 0;
+    }
+    health_ -= damageTaken;
+    return damageTaken;
+}
